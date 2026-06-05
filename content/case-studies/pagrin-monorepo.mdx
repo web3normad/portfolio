@@ -1,0 +1,49 @@
+---
+title: "Pagrin — Multi-App Monorepo with Shared AI, Analytics, and i18n"
+project: "Pagrin"
+year: "2025"
+role: "Founding engineer / architect"
+stack: ["Turborepo", "Next.js 16", "TypeScript", "OpenTelemetry", "Vercel AI SDK", "pnpm workspaces"]
+github: "https://github.com/web3normad/pagrin"
+problem: "Two apps (partners dashboard + embeddable web SDK) needed to share a chat UI, analytics signals, and i18n. Copy-pasting between them would have rotted the moment one shipped without the other."
+outcome: "A Turborepo with four internal packages consumed by both apps. One source of truth for AI chat, telemetry, and translations."
+metrics:
+  - label: "Apps in workspace"
+    value: "2"
+  - label: "Shared packages"
+    value: "4"
+  - label: "Build time (cold)"
+    value: "~45s"
+  - label: "Build time (Turbo cache hit)"
+    value: "~3s"
+---
+
+## Why a monorepo
+
+The partners dashboard and the embeddable web SDK had three things in common: a chat
+component (LLM-backed support agent), analytics emission (every interaction is a span), and
+i18n. Three copy-paste-shaped problems.
+
+Turborepo with pnpm workspaces lets both apps consume the same package source. A change
+to the chat UI ships to both surfaces in one PR. The dependency graph is explicit in
+`turbo.json`, so CI rebuilds only what changed.
+
+## The packages
+
+- **@pagrin/ai-chat** — React component + hook backed by the Vercel AI SDK. Streaming
+  responses, tool-call rendering, conversation persistence via callbacks (the app decides
+  where to store).
+- **@pagrin/analytics** — OpenTelemetry wrapper. Every chat message, every CTA click, every
+  page view emits a span. Exporters are pluggable: Sentry, Honeycomb, Vercel Analytics, or
+  a local development exporter.
+- **@pagrin/i18n** — typed translation keys with a `validate-translations` script that flags
+  drift between locales in CI, plus a `translate` script that pipes new keys through an LLM
+  for a first-draft translation.
+- **@pagrin/ui** — design system primitives (Button, Input, Modal, Toast) on top of Radix
+  with Tailwind-styled defaults.
+
+## What I'd do differently
+
+I overinvested in i18n tooling early — the `translate` script was clever but only ran twice
+before we shipped a hardcoded English MVP for the first three partners. Tooling that
+doesn't get used twice in production is debt, not infrastructure.

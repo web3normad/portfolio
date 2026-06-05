@@ -1,0 +1,65 @@
+---
+title: "Schoolbox — Offline-First AI Tutor on Tauri + Rust"
+project: "Schoolbox"
+year: "2025"
+role: "Full-stack engineer"
+stack: ["Tauri 2", "Rust", "React 18", "TypeScript", "SQLite", "KaTeX", "bcrypt", "reqwest"]
+github: "https://github.com/web3normad/schoolbox"
+problem: "AI tutors assume always-on broadband. In low-connectivity regions that's not the deployment reality. Schoolbox needed to work offline, sync when it could, and still feel like a modern app."
+outcome: "A 12MB desktop app that runs a local LLM, ingests DOCX/PDF coursework, renders math via KaTeX, and never blocks on network."
+metrics:
+  - label: "Bundle size"
+    value: "~12MB"
+  - label: "Cold start"
+    value: "< 800ms"
+  - label: "Offline capability"
+    value: "100%"
+  - label: "Platforms"
+    value: "Windows / macOS / Linux"
+---
+
+## Why Tauri + Rust
+
+Electron was off the table — a 200MB binary is unshippable on the connections this app is
+deployed over. Tauri ships a WebView pointed at the OS's native renderer (~12MB), with Rust
+handling the heavy lifting: SQLite, file system, LLM inference, encryption.
+
+The frontend is a normal React + Tailwind app. The backend is a Rust crate invoked via
+Tauri's command system. Everything that can run on-device does; the network is opportunistic.
+
+## Architecture
+
+```
+┌──────────────────────────────┐
+│  React 18 + Tailwind         │
+│  (WebView, ~3MB)             │
+└────────────┬─────────────────┘
+             │  Tauri IPC (typed)
+┌────────────▼─────────────────┐
+│  Rust backend                │
+│  - reqwest (sync when online)│
+│  - SQLite (sqlx)             │
+│  - bcrypt (account auth)     │
+│  - DOCX parser (mammoth-rs)  │
+│  - Local LLM runtime         │
+└──────────────────────────────┘
+```
+
+## Key decisions
+
+**Local LLM, not cloud.** A small quantized model runs locally for tutoring conversations.
+Quality is below GPT-4 but it's *there* when there's no internet. When connectivity returns,
+the app upgrades to a cloud model transparently.
+
+**SQLite everywhere.** All user data, all course material, all conversation history lives
+in a local SQLite file. Sync is a separate concern that runs in the background when network
+is available; the foreground app never blocks on it.
+
+**KaTeX, not MathJax.** KaTeX renders math 10x faster and ships as static CSS — no runtime
+font loading, no network requests, predictable performance on low-end hardware.
+
+## What I learned
+
+Building for low-connectivity regions forces architecture decisions that improve every other
+deployment too. The offline-first version is faster, smaller, and more reliable than the
+broadband-assumed version would have been. Constraint became feature.

@@ -1,0 +1,62 @@
+---
+title: "Rabit — Embedded Wallet SDK with Non-Custodial Key Recovery"
+project: "Rabit Wallet"
+year: "2025"
+role: "Creator / maintainer"
+stack: ["TypeScript", "Turborepo", "Changesets", "viem", "@solana/web3.js", "Shamir Secret Sharing"]
+github: "https://github.com/web3normad/rabit-wallet"
+problem: "Embedded wallets force teams to choose between custodial (centralized, regulated) and seed-phrase (terrible UX). Recovery without either is the hard problem."
+outcome: "MIT-licensed SDK with 2-of-3 Shamir Secret Sharing, EVM + Solana support, and a create-rabit-app scaffolder that ships a wallet in three commands."
+metrics:
+  - label: "Packages in monorepo"
+    value: "12"
+  - label: "Chains supported out of the box"
+    value: "EVM + Solana"
+  - label: "License"
+    value: "MIT"
+  - label: "Recovery model"
+    value: "2-of-3 SSS"
+---
+
+## The problem
+
+Every embedded wallet SDK I evaluated forced an unhappy tradeoff: custodial models held
+keys on a server (regulatory exposure, single point of failure) or seed-phrase models pushed
+the entire UX problem onto the user. The third option — MPC — was locked behind enterprise
+contracts.
+
+## What Rabit does
+
+Rabit splits the user's private key into three Shamir shares: one on-device, one in a
+provider-side encrypted vault, one held by a recovery service. Any two reconstruct the key.
+No single party — including Rabit itself — can spend.
+
+**The monorepo:**
+
+- `@rabit/core` — share splitting, key reconstruction, message signing primitives
+- `@rabit/react` — provider, hooks (`useWallet`, `useTransaction`, `useRecovery`)
+- `@rabit/evm` and `@rabit/solana` — chain adapters
+- `@rabit/connectors` — RainbowKit / wagmi interop so existing dApps adopt incrementally
+- `@rabit/smart-accounts` — ERC-4337 abstraction wrapper
+- `@rabit/onramp` — fiat → crypto via Transak / MoonPay
+- `@rabit/ui`, `@rabit/keys`, `@rabit/types`, `@rabit/analytics` — supporting packages
+- `create-rabit-app` — `npx create-rabit-app` scaffolder
+
+## Design decisions
+
+**Why Shamir, not MPC?** MPC requires multi-round signing protocols; Shamir reconstructs the
+key in a single round. For consumer wallets the constant-factor latency matters more than
+the marginally better theoretical security of MPC.
+
+**Why a monorepo with 12 packages?** Each chain adapter, each connector, each onramp is a
+separate package so teams can install only what they need. The full SDK is ~50KB gzipped if
+you pull everything; ~12KB if you stick to EVM-only.
+
+**Why MIT?** OpenZeppelin, ethers, viem, and wagmi are all MIT-licensed. The wallet layer
+shouldn't be the place teams hit a license boundary.
+
+## What's in the public repo
+
+CONTRIBUTING, SECURITY (including disclosure policy), Code of Conduct, full Changesets
+release flow with automated CHANGELOG generation, semver-aware version bumping. Anyone
+shipping a wallet SDK can fork and adopt the architecture.

@@ -1,0 +1,50 @@
+"use client";
+
+import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
+import { SKILLS } from "@/lib/data/skills";
+
+export default function Skills() {
+  return (
+    <section id="skills" className="relative bg-[var(--color-ink)] py-24 text-[var(--color-paper)] md:py-40">
+      <div className="container-x">
+        <SectionHeading
+          index="02"
+          eyebrow="Stack"
+          title={"What I use\nto ship."}
+          className="text-[var(--color-paper)]"
+        />
+
+        <div className="grid gap-px bg-[var(--color-mute)]/30 md:grid-cols-2 lg:grid-cols-3">
+          {SKILLS.map((group, idx) => (
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10% 0px" }}
+              transition={{ duration: 0.6, delay: idx * 0.05 }}
+              className="bg-[var(--color-ink)] p-8 md:p-10"
+            >
+              <div className="mb-6 flex items-baseline justify-between">
+                <h3 className="display text-3xl">{group.title}</h3>
+                <span className="font-mono text-xs text-[var(--color-paper)]/50">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <ul className="flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full border border-[var(--color-paper)]/30 px-3 py-1.5 text-xs font-mono text-[var(--color-paper)]/90 transition-colors hover:border-[var(--color-paper)] hover:bg-[var(--color-paper)] hover:text-[var(--color-ink)]"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

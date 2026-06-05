@@ -1,0 +1,70 @@
+---
+title: "Foniolabs.xyz — Sanity + Next.js + Claude Code MCP"
+project: "Foniolabs"
+year: "2026"
+role: "Lead engineer"
+stack: ["Next.js 16", "Sanity", "GROQ", "Vercel", "Claude Code MCP", "HubSpot", "GA4"]
+github: "https://github.com/foniolabs/website"
+demo: "https://foniolabs.xyz"
+problem: "A static-exported marketing site on Hostinger meant every content change needed an engineer. The marketing team wanted to ship a page without opening a PR."
+outcome: "Live on Vercel with Sanity Studio embedded. Marketing publishes via Claude Code prompts; engineers ship schema."
+metrics:
+  - label: "Document types modelled"
+    value: "9"
+  - label: "Reusable section blocks"
+    value: "8"
+  - label: "Lighthouse (mobile)"
+    value: "95+"
+  - label: "SEO ranking drop after cutover"
+    value: "0"
+---
+
+## The brief
+
+Foniolabs needed a CMS migration that didn't degrade SEO or shipping speed. The existing
+marketing site was a Next.js static export deployed to shared hosting. Every copy change ran
+through an engineer. The team wanted three things:
+
+1. Editor-friendly content modeling for non-technical operators
+2. SEO continuity — no ranking drop after the cutover
+3. An "AI-native" workflow — content via natural language, not Studio clicking
+
+## Constraints
+
+- 14 calendar days, ~45 working hours
+- Zero downtime — DNS swap on Day 13
+- Free-tier infrastructure (Sanity free, Vercel hobby, GA4 free)
+- No regressions to existing routes — 100% of public URLs preserved
+
+## What I built
+
+**Content model** — 9 documents (`siteSettings`, `navigation`, `page`, `post`, `author`,
+`product`, `teamMember`, `seo`, `redirect`) + 8 reusable section blocks (`hero`,
+`featureGrid`, `richText`, `cta`, `testimonial`, `logoCloud`, `embedHtml`, `contactForm`).
+Pages compose from sections; marketing recombines blocks without engineering involvement.
+
+**Custom Studio components** — a `SlugInput` that auto-creates a redirect document when a URL
+changes; a Google snippet `SEOPreview`; a live `OGImagePreview` that renders the `/api/og`
+edge route inline; a presentation tool wired to Next.js draft mode for true live preview.
+
+**Migration script** — idempotent, asset-uploading, with a dry-run mode and seeded singletons
+that survive re-runs (`createIfNotExists`). Every legacy URL maps to a new Sanity document or
+a 301 redirect.
+
+**Claude Code + Sanity MCP** — the hosted MCP server registered at the repo root via
+`.mcp.json`. From inside Claude Code: "create a news post titled X, set publishedAt to today,
+assign author Z" lands real documents in the production dataset. Documented in
+`OPERATING.md` with a prompt cheat sheet for the marketing team.
+
+## Results
+
+- Live on Vercel; Sanity Studio embedded at `/studio`
+- Lighthouse 95+ across Performance, Accessibility, Best Practices, SEO on mobile
+- Zero SEO ranking drop after DNS cutover — every legacy URL resolves via 301 or new page
+- Marketing now publishes content by prompting; engineering ships schema and blocks
+
+## What I learned
+
+Sanity's "compose pages from section blocks" pattern is the difference between a CMS the
+marketing team uses and a CMS the marketing team avoids. Modeling at the block layer (not the
+page layer) lets non-technical operators recombine without ever asking for a new schema.
