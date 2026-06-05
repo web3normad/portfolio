@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "./components/LenisProvider";
-import Cursor from "./components/Cursor";
 import Nav from "./components/Nav";
 import Loader from "./components/Loader";
 
@@ -81,7 +80,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <LenisProvider>
           <Loader />
-          <Cursor />
           <Nav />
           {children}
         </LenisProvider>

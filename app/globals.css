@@ -36,19 +36,6 @@
     overflow-x: hidden;
   }
 
-  /* Hide native cursor when our custom cursor is active */
-  html.has-cursor,
-  html.has-cursor * {
-    cursor: none !important;
-  }
-
-  @media (pointer: coarse) {
-    html.has-cursor,
-    html.has-cursor * {
-      cursor: auto !important;
-    }
-  }
-
   /* Lenis smooth scroll */
   html.lenis,
   html.lenis body {

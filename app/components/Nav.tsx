@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Magnetic from "./Magnetic";
+import { SOCIALS } from "@/lib/data/socials";
 
 const LINKS = [
   { href: "#work", label: "Work" },
@@ -120,7 +121,7 @@ export default function Nav() {
               ))}
             </nav>
             <div className="container-x mb-10 flex items-center justify-between text-xs font-mono uppercase tracking-[0.18em]">
-              <a href="mailto:info@officialapps.com">info@officialapps.com</a>
+              <a href={`mailto:${SOCIALS.email}`}>{SOCIALS.email}</a>
               <span>Jos, NG</span>
             </div>
           </motion.div>

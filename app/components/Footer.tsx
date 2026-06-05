@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="hairline mb-8 bg-[var(--color-paper)]/15" />
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em]">
-            © {new Date().getFullYear()} Emmanuel Doji · Built with Next.js + Claude Code
+            © {new Date().getFullYear()} Emmanuel Doji
           </p>
           <ul className="flex flex-wrap gap-5 font-mono text-[10px] uppercase tracking-[0.18em]">
             <li>
