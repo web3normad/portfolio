@@ -6,7 +6,8 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const title = searchParams.get("title") ?? "Emmanuel Doji";
   const subtitle =
-    searchParams.get("subtitle") ?? "Full-Stack & Web3 Engineer · AI-Native Builder";
+    searchParams.get("subtitle") ??
+    "Engineer · Operator · Educator — Pagrin · Tita Group · Dominion Academy";
 
   return new ImageResponse(
     (

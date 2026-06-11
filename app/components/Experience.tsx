@@ -8,7 +8,7 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 md:py-40">
       <div className="container-x">
-        <SectionHeading index="04" eyebrow="Timeline" title={"Where I've\nbeen."} />
+        <SectionHeading index="05" eyebrow="Timeline" title={"Where I've\nbeen."} />
 
         <ol className="mx-auto max-w-4xl">
           {EXPERIENCE.map((e, i) => (

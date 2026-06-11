@@ -1,12 +1,11 @@
 ---
-title: "Schoolbox — Offline-First AI Tutor on Tauri + Rust"
-project: "Schoolbox"
-year: "2025"
-role: "Full-stack engineer"
+title: "SkoolBox — Offline-First AI Tutor for Nigerian Schools"
+project: "SkoolBox"
+year: "2025 — Present"
+role: "Product engineer"
 stack: ["Tauri 2", "Rust", "React 18", "TypeScript", "SQLite", "KaTeX", "bcrypt", "reqwest"]
-github: "https://github.com/web3normad/schoolbox"
-problem: "AI tutors assume always-on broadband. In low-connectivity regions that's not the deployment reality. Schoolbox needed to work offline, sync when it could, and still feel like a modern app."
-outcome: "A 12MB desktop app that runs a local LLM, ingests DOCX/PDF coursework, renders math via KaTeX, and never blocks on network."
+problem: "AI-assisted teaching assumes always-on broadband. In the schools I help operate that's not the deployment reality. SkoolBox needed to work offline, sync when it could, and still feel like a modern AI-powered classroom tool."
+outcome: "A ~12MB desktop app that runs a local LLM, ingests DOCX/PDF coursework, renders math via KaTeX, and never blocks on the network. Pilots into Dominion Academy as the in-classroom infrastructure."
 metrics:
   - label: "Bundle size"
     value: "~12MB"
@@ -18,10 +17,20 @@ metrics:
     value: "Windows / macOS / Linux"
 ---
 
+## Why this exists
+
+I'm proprietor of two schools in northern Nigeria. The connectivity is intermittent at
+best. Every "AI in the classroom" tool I evaluated assumed broadband and centralized
+inference. None of them would deploy. So I built one.
+
+SkoolBox serves teachers and students in a single application — teachers plan lessons,
+assess, and monitor; students learn topics with an embedded AI tutor and take adaptive
+quizzes — and the whole thing runs on a laptop with no internet.
+
 ## Why Tauri + Rust
 
-Electron was off the table — a 200MB binary is unshippable on the connections this app is
-deployed over. Tauri ships a WebView pointed at the OS's native renderer (~12MB), with Rust
+Electron was off the table — a 200MB binary is unshippable on the connections this app
+deploys over. Tauri ships a WebView pointed at the OS's native renderer (~12MB), with Rust
 handling the heavy lifting: SQLite, file system, LLM inference, encryption.
 
 The frontend is a normal React + Tailwind app. The backend is a Rust crate invoked via
@@ -40,7 +49,7 @@ Tauri's command system. Everything that can run on-device does; the network is o
 │  - reqwest (sync when online)│
 │  - SQLite (sqlx)             │
 │  - bcrypt (account auth)     │
-│  - DOCX parser (mammoth-rs)  │
+│  - DOCX parser (mammoth)     │
 │  - Local LLM runtime         │
 └──────────────────────────────┘
 ```
@@ -58,8 +67,8 @@ is available; the foreground app never blocks on it.
 **KaTeX, not MathJax.** KaTeX renders math 10x faster and ships as static CSS — no runtime
 font loading, no network requests, predictable performance on low-end hardware.
 
-## What I learned
+## Why this matters to me personally
 
-Building for low-connectivity regions forces architecture decisions that improve every other
-deployment too. The offline-first version is faster, smaller, and more reliable than the
-broadband-assumed version would have been. Constraint became feature.
+I run the schools that this tool deploys into. That changes how I build it. Every decision
+I make in code shows up in a classroom I'm responsible for. Constraint becomes feature;
+context becomes accountability.

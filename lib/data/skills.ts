@@ -5,27 +5,53 @@ export type SkillGroup = {
 
 export const SKILLS: SkillGroup[] = [
   {
-    title: "Languages",
-    items: ["TypeScript", "JavaScript", "Rust", "Python", "Solidity", "SQL"],
-  },
-  {
     title: "Frontend",
-    items: ["React", "Next.js", "Vue", "Nuxt", "Tailwind CSS", "Framer Motion"],
+    items: [
+      "React 19",
+      "Next.js 16",
+      "TypeScript",
+      "Tailwind v4",
+      "Framer Motion",
+      "TanStack Query",
+      "Vite",
+      "next-intl",
+    ],
   },
   {
-    title: "Backend",
-    items: ["Node.js", "Express", "PostgreSQL", "MongoDB", "Redis", "GraphQL"],
+    title: "Architecture",
+    items: ["Turborepo", "pnpm workspaces", "Changesets", "Monorepo", "Design systems", "ECharts"],
+  },
+  {
+    title: "Backend & data",
+    items: ["Node.js", "Express", "PostgreSQL", "SQLite", "Redis", "Sanity", "GROQ"],
   },
   {
     title: "Web3",
-    items: ["viem", "wagmi", "ethers.js", "Solana web3.js", "Hardhat", "Foundry"],
+    items: [
+      "viem",
+      "wagmi",
+      "RainbowKit",
+      "ethers.js",
+      "@solana/web3.js",
+      "Hardhat",
+      "Foundry",
+      "Solidity",
+    ],
   },
   {
-    title: "DevOps",
-    items: ["Docker", "GitHub Actions", "Vercel", "AWS", "Sentry", "Turborepo"],
+    title: "Desktop & systems",
+    items: ["Tauri 2", "Rust", "sqlx", "reqwest", "WASM", "Local LLM"],
   },
   {
-    title: "AI / Tooling",
-    items: ["Claude Code", "Sanity MCP", "Vercel AI SDK", "OpenTelemetry", "LangChain"],
+    title: "AI · DevOps · Ops",
+    items: [
+      "Claude Code",
+      "Sanity MCP",
+      "Vercel AI SDK",
+      "PostHog",
+      "OpenTelemetry",
+      "Vercel",
+      "GitHub Actions",
+    ],
   },
 ];

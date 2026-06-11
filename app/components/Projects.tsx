@@ -6,7 +6,11 @@ export default function Projects() {
   return (
     <section id="work" className="py-24 md:py-40">
       <div className="container-x">
-        <SectionHeading index="03" eyebrow="Selected work" title={"Things\nI've built."} />
+        <SectionHeading
+          index="02"
+          eyebrow="Selected work"
+          title={"What\nI ship."}
+        />
 
         <div>
           {PROJECTS.map((p) => (

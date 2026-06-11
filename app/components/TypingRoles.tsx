@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 
 const ROLES = [
-  "Full-Stack Developer.",
-  "Web3 Engineer.",
-  "Open Source Contributor.",
-  "AI-Native Builder.",
-  "Tech Writer.",
+  "Frontend engineer @ Pagrin.",
+  "Building for Tita Group.",
+  "Open-source maintainer.",
+  "Proprietor — Dominion Academy.",
+  "AI-native builder.",
 ];
 
 export default function TypingRoles() {
@@ -22,7 +22,7 @@ export default function TypingRoles() {
         if (chars < word.length) {
           setChars((c) => c + 1);
         } else {
-          window.setTimeout(() => setDeleting(true), 1600);
+          window.setTimeout(() => setDeleting(true), 1800);
         }
       } else {
         if (chars > 0) {
@@ -33,7 +33,7 @@ export default function TypingRoles() {
         }
       }
     };
-    const delay = deleting ? 35 : 65;
+    const delay = deleting ? 30 : 60;
     const id = window.setTimeout(tick, delay);
     return () => window.clearTimeout(id);
   }, [chars, deleting, index]);

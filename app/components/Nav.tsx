@@ -6,9 +6,9 @@ import Magnetic from "./Magnetic";
 import { SOCIALS } from "@/lib/data/socials";
 
 const LINKS = [
-  { href: "#work", label: "Work" },
   { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
+  { href: "#work", label: "Work" },
+  { href: "#leadership", label: "Leadership" },
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];

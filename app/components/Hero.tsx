@@ -16,10 +16,10 @@ export default function Hero() {
     >
       <div className="container-x">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <span className="eyebrow">Jos, Nigeria · Available for contract</span>
+          <span className="eyebrow">Jos, Nigeria · Builder · Operator · Educator</span>
           <span className="font-mono text-xs text-[var(--color-mute)]">
             <span className="mr-2 inline-block h-2 w-2 translate-y-[0.15em] rounded-full bg-emerald-500" />
-            Open to senior roles · 2026
+            Shipping with Pagrin · Tita Group · Dominion Academy
           </span>
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function Hero() {
                 animate={{ y: 0 }}
                 transition={{ delay: 1.55, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               >
-                Hi, I&apos;m
+                I&apos;m
               </motion.span>
             </span>
             <span className="block reveal-line">
@@ -67,8 +67,12 @@ export default function Hero() {
                 <TypingRoles />
               </p>
               <p className="mt-6 max-w-md text-base text-[var(--color-mute)] md:text-lg">
-                Five years shipping production software across full-stack web, Web3, and AI-native
-                tooling. I write code with Claude Code in the loop — every day.
+                Frontend engineer at <span className="text-[var(--color-ink)]">Pagrin</span>,
+                shipping interfaces for{" "}
+                <span className="text-[var(--color-ink)]">Tita Group</span>, maintainer of
+                open-source SDKs, and proprietor of two schools in northern Nigeria. I build at
+                the seam of software, business, and education — and I write code with Claude
+                Code in the loop every single day.
               </p>
             </motion.div>
 
@@ -80,18 +84,13 @@ export default function Hero() {
             >
               <Magnetic>
                 <a href="#work" className="btn-ink">
-                  View projects
+                  See the work
                   <FiArrowDown />
                 </a>
               </Magnetic>
               <Magnetic>
-                <a
-                  href="/resume.pdf"
-                  className="btn-outline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Resume
+                <a href="#contact" className="btn-outline">
+                  Start a conversation
                   <FiArrowUpRight />
                 </a>
               </Magnetic>
@@ -139,7 +138,7 @@ export default function Hero() {
             </li>
           </ul>
           <div className="font-mono text-xs text-[var(--color-mute)]">
-            <pre className="hidden md:block">{`> ready for input_`}</pre>
+            <pre className="hidden md:block">{`> writing code, running businesses_`}</pre>
           </div>
           <motion.div
             initial={{ y: -4 }}

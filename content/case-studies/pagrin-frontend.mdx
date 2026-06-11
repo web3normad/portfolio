@@ -1,0 +1,67 @@
+---
+title: "Pagrin — Frontend Across a Multi-App Turborepo"
+project: "Pagrin"
+year: "2025 — Present"
+role: "Frontend engineer"
+stack: ["Next.js 16", "Turborepo", "React 19", "next-intl", "@pagrin/ai-chat", "PostHog", "ECharts"]
+problem: "Two products — a partners dashboard and an embeddable web SDK — needed to share a chat UI, analytics, i18n, and a design language. Copy-pasting across two repos would have rotted within a quarter."
+outcome: "One Turborepo, two apps, four shared packages. The partners dashboard and the web SDK ship from the same source of truth, with i18n drift, analytics signals, and AI chat surfaces unified across surfaces."
+metrics:
+  - label: "Apps in workspace"
+    value: "2"
+  - label: "Shared packages"
+    value: "6"
+  - label: "Locales supported"
+    value: "next-intl"
+  - label: "Analytics adapter"
+    value: "PostHog"
+---
+
+## My role
+
+I lead the frontend across the Pagrin codebase. The partners dashboard — where Pagrin partners
+manage their integrations, monitor signals, and talk to the AI chat agent — and the
+embeddable web SDK that ships Pagrin into third-party surfaces both flow through my work.
+
+## The structure I shipped
+
+The repo is a Turborepo with two apps and six shared packages:
+
+```
+apps/
+  partners-dashboard     Next.js 16 · next-intl · @pagrin/ai-chat
+  web-sdk                Next.js 16 · embeddable surface
+
+packages/
+  @pagrin/ai-chat        React component + hooks for the support / partner agent
+  @pagrin/analytics      PostHog-backed event layer
+  @pagrin/i18n           Typed translation keys + drift-detection scripts
+  @pagrin/ui             Design-system primitives (Tailwind v4)
+  @pagrin/eslint-config  Shared lint
+  @pagrin/typescript-config  Shared tsconfig
+```
+
+A change to the chat UI or the analytics layer ships to both apps in one PR. The dependency
+graph is explicit in `turbo.json`, so CI rebuilds only what changed — cold build is ~45s,
+Turbo-cache hit is ~3s.
+
+## Design decisions that mattered
+
+**Why a monorepo, not a Git submodule story?** Submodules push the coordination tax onto
+every PR. Workspaces make the apps consume `@pagrin/*` at source — no publish step, no
+version drift, no "this works on main but not on the dashboard branch."
+
+**Why `next-intl` over `react-i18next`?** App Router locale routing was a first-class citizen,
+and the static-rendering story is significantly better. The `@pagrin/i18n` package wraps it
+with typed keys and a `check.mjs` script that fails CI on missing translations across locales.
+
+**Why ECharts in the AI chat package?** The agent renders inline charts when it answers data
+questions. ECharts gives us declarative chart specs that can be serialized over the wire from
+the model — Recharts and Chart.js would have required a heavier React-only path.
+
+## What the work feels like
+
+Most days I'm either building a new surface in the dashboard (recently: an xy-flow
+canvas for visualizing partner integration topology) or extending one of the shared packages
+because both apps need the same primitive. The leverage compounds — every package I harden
+pays out in both apps for the rest of the product's life.

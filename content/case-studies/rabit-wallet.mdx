@@ -1,35 +1,36 @@
 ---
-title: "Rabit — Embedded Wallet SDK with Non-Custodial Key Recovery"
+title: "Rabit — Embedded Wallet SDK with Non-Custodial Recovery"
 project: "Rabit Wallet"
-year: "2025"
-role: "Creator / maintainer"
+year: "2025 — Present"
+role: "Creator · Maintainer"
 stack: ["TypeScript", "Turborepo", "Changesets", "viem", "@solana/web3.js", "Shamir Secret Sharing"]
 github: "https://github.com/web3normad/rabit-wallet"
-problem: "Embedded wallets force teams to choose between custodial (centralized, regulated) and seed-phrase (terrible UX). Recovery without either is the hard problem."
-outcome: "MIT-licensed SDK with 2-of-3 Shamir Secret Sharing, EVM + Solana support, and a create-rabit-app scaffolder that ships a wallet in three commands."
+problem: "Embedded wallet SDKs force product teams to choose between custodial (centralized, regulated, single point of failure) and seed-phrase (terrible UX). Recovery without either was the hard problem, and the third option — MPC — was locked behind enterprise contracts."
+outcome: "An MIT-licensed SDK with 2-of-3 Shamir Secret Sharing, EVM + Solana support, and a create-rabit-app scaffolder that ships a working wallet in three commands."
 metrics:
   - label: "Packages in monorepo"
-    value: "12"
+    value: "11"
   - label: "Chains supported out of the box"
     value: "EVM + Solana"
   - label: "License"
     value: "MIT"
   - label: "Recovery model"
-    value: "2-of-3 SSS"
+    value: "2-of-3 Shamir"
 ---
 
-## The problem
+## Why this exists
 
 Every embedded wallet SDK I evaluated forced an unhappy tradeoff: custodial models held
 keys on a server (regulatory exposure, single point of failure) or seed-phrase models pushed
 the entire UX problem onto the user. The third option — MPC — was locked behind enterprise
-contracts.
+contracts. I wanted a wallet layer that was open, non-custodial by default, and didn't
+require a user to write a 12-word phrase on paper.
 
 ## What Rabit does
 
 Rabit splits the user's private key into three Shamir shares: one on-device, one in a
 provider-side encrypted vault, one held by a recovery service. Any two reconstruct the key.
-No single party — including Rabit itself — can spend.
+No single party — including the integrator — can spend.
 
 **The monorepo:**
 
@@ -39,18 +40,18 @@ No single party — including Rabit itself — can spend.
 - `@rabit/connectors` — RainbowKit / wagmi interop so existing dApps adopt incrementally
 - `@rabit/smart-accounts` — ERC-4337 abstraction wrapper
 - `@rabit/onramp` — fiat → crypto via Transak / MoonPay
-- `@rabit/ui`, `@rabit/keys`, `@rabit/types`, `@rabit/analytics` — supporting packages
+- `@rabit/ui`, `@rabit/keys`, `@rabit/types` — supporting packages
 - `create-rabit-app` — `npx create-rabit-app` scaffolder
 
 ## Design decisions
 
 **Why Shamir, not MPC?** MPC requires multi-round signing protocols; Shamir reconstructs the
 key in a single round. For consumer wallets the constant-factor latency matters more than
-the marginally better theoretical security of MPC.
+MPC's marginal theoretical advantage.
 
-**Why a monorepo with 12 packages?** Each chain adapter, each connector, each onramp is a
-separate package so teams can install only what they need. The full SDK is ~50KB gzipped if
-you pull everything; ~12KB if you stick to EVM-only.
+**Why a monorepo with 11 packages?** Each chain adapter, each connector, each onramp is a
+separate package so teams install only what they need. The full SDK is ~50KB gzipped if you
+pull everything; ~12KB if you stick to EVM-only.
 
 **Why MIT?** OpenZeppelin, ethers, viem, and wagmi are all MIT-licensed. The wallet layer
 shouldn't be the place teams hit a license boundary.
@@ -59,4 +60,4 @@ shouldn't be the place teams hit a license boundary.
 
 CONTRIBUTING, SECURITY (including disclosure policy), Code of Conduct, full Changesets
 release flow with automated CHANGELOG generation, semver-aware version bumping. Anyone
-shipping a wallet SDK can fork and adopt the architecture.
+shipping a wallet SDK can fork the architecture.

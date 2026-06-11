@@ -31,7 +31,7 @@ export default function OpenSource() {
   return (
     <section id="open-source" className="border-t border-[var(--color-line)] py-24 md:py-40">
       <div className="container-x">
-        <SectionHeading index="05" eyebrow="Open source" title={"Code I've\npushed."} />
+        <SectionHeading index="06" eyebrow="Open source" title={"Code I've\nshipped publicly."} />
 
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
           <motion.div

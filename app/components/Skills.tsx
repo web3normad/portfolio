@@ -9,9 +9,9 @@ export default function Skills() {
     <section id="skills" className="relative bg-[var(--color-ink)] py-24 text-[var(--color-paper)] md:py-40">
       <div className="container-x">
         <SectionHeading
-          index="02"
+          index="03"
           eyebrow="Stack"
-          title={"What I use\nto ship."}
+          title={"Tools I\nreach for."}
           className="text-[var(--color-paper)]"
         />
 

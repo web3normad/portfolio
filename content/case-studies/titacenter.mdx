@@ -1,0 +1,58 @@
+---
+title: "TitaCenter — Seven Financial Products, One Coherent Interface"
+project: "TitaCenter"
+year: "2024 — 2025"
+role: "Lead frontend engineer"
+stack: ["Next.js 16", "React 19", "TanStack Query", "Framer Motion", "Recharts", "Tailwind v4"]
+problem: "Tita Group needed a flagship fintech surface that did on-ramp, off-ramp, exchange, trade, invoicing, payment gateway, and wallet — without feeling like seven different apps duct-taped together."
+outcome: "Shipped TitaCenter as a single coherent product with seven internal surfaces, a shared animation language, data-fetching patterns the team extends, and a design system the rest of Tita's products now consume."
+metrics:
+  - label: "Product surfaces"
+    value: "7"
+  - label: "Animation language"
+    value: "Framer Motion"
+  - label: "Data layer"
+    value: "TanStack Query"
+  - label: "Design tokens"
+    value: "Tailwind v4 @theme"
+---
+
+## The problem
+
+Fintech super-apps fail when the seams show. Users notice immediately when the wallet
+"feels different" from the exchange, when the invoicing module is a clear afterthought,
+when on-ramp lives in another tab with another header. TitaCenter needed to land seven
+financial surfaces in one product without that fragmentation.
+
+## What I owned
+
+- **Design system** — token primitives in Tailwind v4's `@theme`, semantic tokens that
+  the rest of the engineering team consumes. Color, type, spacing, motion durations, all
+  versioned.
+- **Animation language** — every transition, page change, modal entrance, and dashboard
+  reveal is choreographed through a small set of Framer Motion variants. Consistency is the
+  feature.
+- **Data-fetching pattern** — TanStack Query for everything network-touching; cache keys,
+  optimistic updates, and stale-while-revalidate behavior is consistent across all seven
+  surfaces. The pattern is documented; junior engineers extend it without a second PR.
+- **Chart layer** — Recharts components wrapped to match brand. Volume, balance, P&L, and
+  invoicing trend charts all share axes, tooltips, and legends.
+
+## The seven surfaces
+
+1. **On-ramp** — fiat → crypto entry
+2. **Off-ramp** — crypto → fiat exit
+3. **Exchange** — instant convert
+4. **Trade** — order book + chart
+5. **Invoicing** — generate, send, settle
+6. **Payment gateway** — accept payments
+7. **Wallet** — multi-asset balance and history
+
+Each one is a route group in App Router with its own dashboard, its own charts, its own flows
+— and the same look, motion, and behaviour.
+
+## What I'm proud of
+
+The seams don't show. A user moving from the wallet to the invoicing surface to the
+exchange shouldn't feel a context switch — and they don't. That's the whole
+job in fintech UX, and it's a job most super-apps fail.

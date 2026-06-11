@@ -8,17 +8,21 @@ import { SOCIALS } from "@/lib/data/socials";
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-[var(--color-ink)] py-32 text-[var(--color-paper)] md:py-48">
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-[var(--color-ink)] py-32 text-[var(--color-paper)] md:py-48"
+    >
       <div className="container-x">
-        <p className="eyebrow mb-6 text-[var(--color-paper)]/60">06 · Contact</p>
+        <p className="eyebrow mb-6 text-[var(--color-paper)]/60">07 · Get in touch</p>
         <RevealText
           as="h2"
           className="display text-6xl leading-[0.95] md:text-9xl lg:text-[12rem]"
-          text={"Let's build\nsomething sharp."}
+          text={"Have something\nbuilt right."}
         />
         <p className="mt-10 max-w-xl text-lg text-[var(--color-paper)]/70 md:text-xl">
-          Open to senior full-stack, Web3, and AI-tooling contracts. I respond within 24 hours,
-          usually faster.
+          I&apos;m always open to conversations — partnerships, advisory, speaking, collaborations
+          across software, fintech, and education. The fastest way is email; the deepest is a
+          phone call.
         </p>
 
         <div className="mt-12 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
@@ -40,9 +44,9 @@ export default function Contact() {
               className="grid h-32 w-32 place-items-center rounded-full bg-[var(--color-paper)] text-[var(--color-ink)] md:h-40 md:w-40"
             >
               <span className="text-center font-mono text-[10px] uppercase tracking-[0.18em]">
-                Get in
+                Write me
                 <br />
-                touch <FiArrowUpRight className="ml-1 inline" />
+                <FiArrowUpRight className="ml-1 inline" />
               </span>
             </a>
           </Magnetic>
@@ -64,10 +68,12 @@ export default function Contact() {
           </div>
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-paper)]/50">
-              Looking for
+              I respond to
             </p>
-            <p className="mt-2 font-display text-2xl">Contract · Senior</p>
-            <p className="text-sm text-[var(--color-paper)]/60">Full-time considered</p>
+            <p className="mt-2 font-display text-2xl">Real work</p>
+            <p className="text-sm text-[var(--color-paper)]/60">
+              Partnerships · advisory · interesting problems
+            </p>
           </div>
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-paper)]/50">

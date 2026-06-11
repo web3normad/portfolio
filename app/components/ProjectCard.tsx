@@ -36,6 +36,11 @@ export default function ProjectCard({ project }: Props) {
         <h3 className="display text-5xl leading-none transition-colors group-hover:text-[var(--color-mute)] md:text-7xl lg:text-8xl">
           {project.title}
         </h3>
+        {project.org && (
+          <p className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-mute)]">
+            {project.role} · {project.org}
+          </p>
+        )}
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--color-mute)] md:text-lg">
           {project.tagline}
         </p>
