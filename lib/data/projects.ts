@@ -67,7 +67,7 @@ export const PROJECTS: Project[] = [
     stack: ["TypeScript", "Turborepo", "Changesets", "viem", "@solana/web3.js"],
     outcome:
       "MIT-licensed SDK with a `create-rabit-app` scaffolder, full CONTRIBUTING / SECURITY / CoC, and key recovery that doesn't require a custodian. The wallet layer that should have existed.",
-    github: "https://github.com/web3normad/rabit-wallet",
+    github: "https://github.com/dev-doji/rabit-wallet",
     caseStudy: "rabit-wallet",
   },
   {
@@ -75,13 +75,13 @@ export const PROJECTS: Project[] = [
     index: "05",
     title: "SkoolBox",
     tagline:
-      "Offline-first AI tutor for Nigerian secondary schools. Tauri 2 + Rust + local LLM. Designed for the schools I help operate.",
+      "Offline-first AI tutor for Nigerian classrooms with intermittent internet. Tauri 2 + Rust + local LLM. Built under Foniolabs, designed for the school I run.",
     year: "2025 — Present",
     role: "Product engineer",
-    org: "Foniolabs · Dominion Academy pilot",
+    org: "Foniolabs · school pilot",
     stack: ["Tauri 2", "Rust", "React 18", "SQLite", "KaTeX", "mammoth"],
     outcome:
-      "A ~12MB desktop app that gives teachers AI-assisted lesson planning and students an AI tutor — without depending on the internet. Pilot deploys into the schools I run.",
+      "A ~12MB desktop app that gives teachers AI-assisted lesson planning and students an AI tutor — without depending on the internet. Pilot deploys into the school I run.",
     caseStudy: "schoolbox-offline-ai",
   },
   {
@@ -89,13 +89,13 @@ export const PROJECTS: Project[] = [
     index: "06",
     title: "Foniolabs",
     tagline:
-      "End-to-end Sanity + Next.js CMS migration. Custom Studio components, Claude Code MCP wired into the editor flow.",
+      "My personal lab for tech in education and web3. Migrated its site to Sanity + Next.js with Claude Code MCP wired into the editor flow.",
     year: "2026",
-    role: "Lead engineer",
-    org: "Foniolabs",
+    role: "Founder · solo build",
+    org: "Personal lab",
     stack: ["Next.js 16", "Sanity", "GROQ", "Vercel", "Claude Code MCP", "HubSpot"],
     outcome:
-      "Marketing publishes content by prompting Claude Code. Lighthouse 95+ across the board, zero SEO ranking drop after DNS cutover.",
+      "I publish content by prompting Claude Code. Lighthouse 95+ across the board, zero SEO ranking drop after DNS cutover.",
     github: "https://github.com/foniolabs/website",
     demo: "https://foniolabs.xyz",
     caseStudy: "foniolabs-sanity-migration",

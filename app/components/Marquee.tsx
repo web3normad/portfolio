@@ -1,7 +1,7 @@
 const TOKENS = [
   "Pagrin",
   "Tita Group",
-  "Dominion Academy",
+  "Firm Foundation & Dominion Academy",
   "Foniolabs",
   "Rabit",
   "SkoolBox",
@@ -9,7 +9,7 @@ const TOKENS = [
   "TitaCenter",
   "Open Source",
   "AI-Native",
-  "Northern Nigeria",
+  "Jos, Plateau State",
   "Claude Code",
 ];
 

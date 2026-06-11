@@ -19,7 +19,7 @@ export default function Hero() {
           <span className="eyebrow">Jos, Nigeria · Builder · Operator · Educator</span>
           <span className="font-mono text-xs text-[var(--color-mute)]">
             <span className="mr-2 inline-block h-2 w-2 translate-y-[0.15em] rounded-full bg-emerald-500" />
-            Shipping with Pagrin · Tita Group · Dominion Academy
+            Shipping with Pagrin · Tita Group · Firm Foundation &amp; Dominion Academy
           </span>
         </div>
       </div>
@@ -70,7 +70,7 @@ export default function Hero() {
                 Frontend engineer at <span className="text-[var(--color-ink)]">Pagrin</span>,
                 shipping interfaces for{" "}
                 <span className="text-[var(--color-ink)]">Tita Group</span>, maintainer of
-                open-source SDKs, and proprietor of two schools in northern Nigeria. I build at
+                open-source SDKs, and proprietor of a school in Jos, Plateau State. I build at
                 the seam of software, business, and education — and I write code with Claude
                 Code in the loop every single day.
               </p>

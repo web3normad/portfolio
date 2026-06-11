@@ -9,12 +9,12 @@ export type Experience = {
 
 export const EXPERIENCE: Experience[] = [
   {
-    company: "Dominion Academy & Firm Foundation School",
+    company: "Firm Foundation & Dominion Academy",
     role: "Proprietor",
     period: "2026 — Present",
-    location: "Northern Nigeria",
+    location: "Jos, Plateau State",
     summary:
-      "Took on the proprietorship of two schools founded by my parents. Running academic operations, faculty oversight, and the rollout of SkoolBox — an offline-first AI tutor I co-built — as in-classroom infrastructure. Treating school operations like a product: clear systems, observable outcomes.",
+      "Took on the proprietorship of the school my parents founded — nursery, primary, and a newly opened secondary section. Running academic operations, faculty oversight, and piloting SkoolBox, an offline-first AI tutor I build in my own time, as in-classroom infrastructure. Treating school operations like a product: clear systems, observable outcomes.",
     stack: ["Operations", "Curriculum", "Edu-tech rollout", "Stakeholder ops"],
   },
   {
@@ -37,11 +37,11 @@ export const EXPERIENCE: Experience[] = [
   },
   {
     company: "Foniolabs",
-    role: "Lead Engineer (Sanity Migration)",
-    period: "2025 — 2026",
-    location: "Remote",
+    role: "Founder — Personal Lab",
+    period: "2025 — Present",
+    location: "Personal project",
     summary:
-      "Led the end-to-end CMS migration of foniolabs.xyz to Sanity + Next.js + Vercel. Modelled 9 document types and 8 reusable section blocks, built custom Studio components (slug-with-auto-redirect, SEO preview, OG preview, presentation tool), and integrated Claude Code + Sanity MCP so the marketing team publishes content by prompting. Lighthouse 95+ across the board.",
+      "Foniolabs is my personal lab — where I experiment with tech for education and web3 in my own time. Most recently I migrated foniolabs.xyz to Sanity + Next.js + Vercel: 9 document types, 8 reusable section blocks, custom Studio components (slug-with-auto-redirect, SEO preview, OG preview, presentation tool), and Claude Code + Sanity MCP wired in so I publish content by prompting. Lighthouse 95+ across the board.",
     stack: ["Next.js 16", "Sanity", "GROQ", "Claude Code MCP", "HubSpot", "Vercel"],
   },
   {

@@ -10,8 +10,8 @@ git commit -m "chore: scaffold portfolio (Next.js 16 + Tailwind v4 + MDX case st
 
 gh repo create emmanueldoji-portfolio --public --source=. --remote=origin --push
 # or manually:
-#   gh repo create web3normad/emmanueldoji-portfolio --public
-#   git remote add origin git@github.com:web3normad/emmanueldoji-portfolio.git
+#   gh repo create dev-doji/emmanueldoji-portfolio --public
+#   git remote add origin git@github.com:dev-doji/emmanueldoji-portfolio.git
 #   git push -u origin main
 ```
 

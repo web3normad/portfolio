@@ -7,7 +7,7 @@ const STATS = [
   { value: "5+", label: "Years shipping production software" },
   { value: "3", label: "Organizations I help run" },
   { value: "12", label: "Open-source packages I maintain" },
-  { value: "2", label: "Schools under my proprietorship" },
+  { value: "1", label: "School under my proprietorship" },
 ];
 
 const PILLARS = [
@@ -24,7 +24,7 @@ const PILLARS = [
   {
     tag: "03 · Education",
     title: "I&apos;m building schools my country needs.",
-    body: "Recently took on the proprietorship of Firm Foundation School and Dominion Academy — institutions my parents founded in northern Nigeria. I&apos;m bringing the same systems thinking I use in software to operate them, and building SkoolBox, an offline-first AI tutor in Tauri + Rust, so children with intermittent internet can still learn with AI in the room.",
+    body: "Firm Foundation &amp; Dominion Academy is one institution in Jos, Plateau State — nursery and primary, with a secondary section we just opened. My parents founded it; I recently took on its proprietorship, bringing the same systems thinking I use in software to running it. In my own time I&apos;m building SkoolBox, an offline-first AI tutor in Tauri + Rust, so children with intermittent internet can still learn with AI in the room.",
   },
 ];
 

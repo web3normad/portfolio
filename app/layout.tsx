@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s — Emmanuel Doji",
   },
   description:
-    "Frontend engineer at Pagrin, builder for Tita Group, open-source maintainer (Rabit), and proprietor of Dominion Academy & Firm Foundation School. AI-native software, fintech, and education in one operator.",
+    "Frontend engineer at Pagrin, builder for Tita Group, open-source maintainer (Rabit), and proprietor of Firm Foundation & Dominion Academy in Jos. AI-native software, fintech, and education in one operator.",
   keywords: [
     "Emmanuel Doji",
     "Pagrin",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     siteName: "Emmanuel Doji",
     title: "Emmanuel Doji — Engineer, Operator, Educator",
     description:
-      "Frontend engineer at Pagrin · builder for Tita Group · maintainer of Rabit · proprietor of Dominion Academy. Shipping software, fintech, and education from northern Nigeria.",
+      "Frontend engineer at Pagrin · builder for Tita Group · maintainer of Rabit · proprietor of Firm Foundation & Dominion Academy. Shipping software, fintech, and education from Jos, Nigeria.",
     images: [{ url: "/api/og", width: 1200, height: 630, alt: "Emmanuel Doji" }],
   },
   twitter: {

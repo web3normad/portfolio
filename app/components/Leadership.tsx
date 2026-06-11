@@ -5,29 +5,29 @@ import SectionHeading from "./SectionHeading";
 
 const ROLES = [
   {
-    org: "Dominion Academy",
-    location: "Northern Nigeria",
+    org: "Nursery & Primary",
+    location: "Jos, Plateau State",
     role: "Proprietor",
     since: "2026",
     description:
-      "Secondary school founded by my parents. Recently took on the proprietorship — running the academic calendar, faculty operations, and the rollout of SkoolBox as the in-classroom AI tutor.",
-    focus: [
-      "Curriculum coverage tracking",
-      "Teacher workload reduction via AI",
-      "Offline-first classroom tooling",
-    ],
-  },
-  {
-    org: "Firm Foundation School",
-    location: "Northern Nigeria",
-    role: "Proprietor",
-    since: "2026",
-    description:
-      "Primary school sister-institution to Dominion Academy. Same family, same standards, younger cohort. I&apos;m bringing systems thinking to admissions, reporting, and parent communication.",
+      "The established core of Firm Foundation &amp; Dominion Academy, founded by my parents. I recently took on its proprietorship — bringing systems thinking to admissions, reporting, parent communication, and modern classroom infrastructure.",
     focus: [
       "Foundational literacy and numeracy",
       "Structured parent reporting",
       "Modern classroom infrastructure",
+    ],
+  },
+  {
+    org: "Secondary",
+    location: "Jos, Plateau State",
+    role: "Proprietor",
+    since: "2026",
+    description:
+      "The newest section of the school, launched this year. Standing it up means owning the academic calendar, faculty operations, and piloting SkoolBox as the in-classroom AI tutor.",
+    focus: [
+      "Curriculum coverage tracking",
+      "Teacher workload reduction via AI",
+      "Offline-first classroom tooling",
     ],
   },
 ];
@@ -39,11 +39,11 @@ const PRINCIPLES = [
   },
   {
     title: "Software is a multiplier, not a magic trick.",
-    body: "AI-native tooling lets a small team operate like a large one. Claude Code is in my flow every day; Sanity MCP runs the foniolabs.xyz publishing pipeline. The leverage is real.",
+    body: "AI-native tooling lets a small team operate like a large one. Claude Code is in my flow every day; on Foniolabs, my personal lab, Sanity MCP runs the publishing pipeline so I ship content by prompting. The leverage is real.",
   },
   {
     title: "Ship to where people actually are.",
-    body: "SkoolBox is offline-first because the schools that need it most don&apos;t have broadband. TitaCenter speaks Naira-first because that&apos;s where its users live. Constraint becomes feature.",
+    body: "SkoolBox is offline-first because the school that needs it most doesn&apos;t have reliable broadband. TitaCenter speaks Naira-first because that&apos;s where its users live. Constraint becomes feature.",
   },
 ];
 
@@ -63,10 +63,10 @@ export default function Leadership() {
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-7 md:col-start-3">
             <p className="text-lg leading-relaxed text-[var(--color-ink)] md:text-2xl md:leading-snug">
-              Code is one half of my work. The other half is operating two schools my parents
-              founded in northern Nigeria, and treating them with the same rigor I bring to a
-              codebase: clear systems, observable outcomes, and tools that let small teams move
-              like large ones.
+              Code is one half of my work. The other half is operating Firm Foundation &amp;
+              Dominion Academy — the school my parents founded in Jos, Plateau State — with the
+              same rigor I bring to a codebase: clear systems, observable outcomes, and tools
+              that let small teams move like large ones.
             </p>
           </div>
         </div>

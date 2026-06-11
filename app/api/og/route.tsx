@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const title = searchParams.get("title") ?? "Emmanuel Doji";
   const subtitle =
     searchParams.get("subtitle") ??
-    "Engineer · Operator · Educator — Pagrin · Tita Group · Dominion Academy";
+    "Engineer · Operator · Educator — Pagrin · Tita Group · Firm Foundation & Dominion Academy";
 
   return new ImageResponse(
     (
@@ -64,7 +64,7 @@ export async function GET(request: Request) {
           }}
         >
           <span>Jos, NG · WAT</span>
-          <span>github.com/web3normad</span>
+          <span>github.com/dev-doji</span>
         </div>
       </div>
     ),

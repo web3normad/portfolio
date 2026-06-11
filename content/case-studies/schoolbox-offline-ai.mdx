@@ -4,8 +4,8 @@ project: "SkoolBox"
 year: "2025 — Present"
 role: "Product engineer"
 stack: ["Tauri 2", "Rust", "React 18", "TypeScript", "SQLite", "KaTeX", "bcrypt", "reqwest"]
-problem: "AI-assisted teaching assumes always-on broadband. In the schools I help operate that's not the deployment reality. SkoolBox needed to work offline, sync when it could, and still feel like a modern AI-powered classroom tool."
-outcome: "A ~12MB desktop app that runs a local LLM, ingests DOCX/PDF coursework, renders math via KaTeX, and never blocks on the network. Pilots into Dominion Academy as the in-classroom infrastructure."
+problem: "AI-assisted teaching assumes always-on broadband. In the school I help operate that's not the deployment reality. SkoolBox needed to work offline, sync when it could, and still feel like a modern AI-powered classroom tool."
+outcome: "A ~12MB desktop app that runs a local LLM, ingests DOCX/PDF coursework, renders math via KaTeX, and never blocks on the network. Pilots into Firm Foundation & Dominion Academy as in-classroom infrastructure."
 metrics:
   - label: "Bundle size"
     value: "~12MB"
@@ -19,9 +19,10 @@ metrics:
 
 ## Why this exists
 
-I'm proprietor of two schools in northern Nigeria. The connectivity is intermittent at
+I'm proprietor of a school in Jos, Plateau State. The connectivity is intermittent at
 best. Every "AI in the classroom" tool I evaluated assumed broadband and centralized
-inference. None of them would deploy. So I built one.
+inference. None of them would deploy. So I built one — under Foniolabs, my personal lab,
+in my own time.
 
 SkoolBox serves teachers and students in a single application — teachers plan lessons,
 assess, and monitor; students learn topics with an embedded AI tutor and take adaptive
@@ -69,6 +70,6 @@ font loading, no network requests, predictable performance on low-end hardware.
 
 ## Why this matters to me personally
 
-I run the schools that this tool deploys into. That changes how I build it. Every decision
+I run the school that this tool deploys into. That changes how I build it. Every decision
 I make in code shows up in a classroom I'm responsible for. Constraint becomes feature;
 context becomes accountability.

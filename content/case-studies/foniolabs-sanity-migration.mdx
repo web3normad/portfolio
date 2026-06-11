@@ -6,8 +6,8 @@ role: "Lead engineer"
 stack: ["Next.js 16", "Sanity", "GROQ", "Vercel", "Claude Code MCP", "HubSpot", "GA4"]
 github: "https://github.com/foniolabs/website"
 demo: "https://foniolabs.xyz"
-problem: "A static-exported marketing site on shared hosting meant every content change ran through an engineer. The team wanted to publish without opening a PR — and wanted AI-native operations as a first-class capability, not a sticker."
-outcome: "Live on Vercel with Sanity Studio embedded and Claude Code wired into the publishing flow. Marketing now ships content by prompting; engineering ships schema and blocks."
+problem: "My personal lab's static-exported site on shared hosting meant every content change ran through code. I wanted to publish without opening a PR — and wanted AI-native operations as a first-class capability, not a sticker."
+outcome: "Live on Vercel with Sanity Studio embedded and Claude Code wired into the publishing flow. I now ship content by prompting; the schema and blocks stay in code."
 metrics:
   - label: "Document types modelled"
     value: "9"
@@ -21,11 +21,12 @@ metrics:
 
 ## The brief
 
-Foniolabs needed a CMS migration that didn't degrade SEO or shipping velocity. The existing
-marketing site was a Next.js static export on shared hosting. Every copy change ran through
-an engineer. The team wanted three things:
+Foniolabs is my personal lab — where I experiment with tech for education and web3 in my own
+time. Its site was a Next.js static export on shared hosting, and every copy change ran
+through code. I wanted a CMS migration that didn't degrade SEO or shipping velocity, and
+three things specifically:
 
-1. Editor-friendly content modeling for non-technical operators
+1. Editor-friendly content modeling for fast, non-technical editing
 2. SEO continuity — no ranking drop after the cutover
 3. An AI-native workflow — content via natural language, not Studio clicking
 
@@ -41,7 +42,7 @@ an engineer. The team wanted three things:
 **Content model** — 9 documents (`siteSettings`, `navigation`, `page`, `post`, `author`,
 `product`, `teamMember`, `seo`, `redirect`) + 8 reusable section blocks (`hero`,
 `featureGrid`, `richText`, `cta`, `testimonial`, `logoCloud`, `embedHtml`, `contactForm`).
-Pages compose from sections; marketing recombines blocks without engineering involvement.
+Pages compose from sections; I recombine blocks without touching code.
 
 **Custom Studio components** — a `SlugInput` that auto-creates a redirect document when a
 URL changes; a Google snippet `SEOPreview`; a live `OGImagePreview` that renders the
@@ -55,18 +56,17 @@ document or a 301 redirect.
 **Claude Code + Sanity MCP** — hosted MCP server registered at the repo root via
 `.mcp.json`. From inside Claude Code, "create a news post titled X, set publishedAt to
 today, assign author Z" lands real documents in production. Documented in `OPERATING.md`
-with a prompt cheat sheet for the marketing team.
+with a prompt cheat sheet I can come back to.
 
 ## Results
 
 - Live on Vercel; Sanity Studio embedded at `/studio`
 - Lighthouse 95+ across Performance, Accessibility, Best Practices, SEO on mobile
 - Zero SEO ranking drop after DNS cutover — every legacy URL resolves via 301 or new page
-- Marketing publishes content by prompting; engineering ships schema and blocks
+- I publish content by prompting; schema and blocks stay in code
 
 ## What I learned
 
-Sanity's "compose pages from section blocks" pattern is the difference between a CMS the
-marketing team actually uses and a CMS the marketing team avoids. Modeling at the block
-layer — not the page layer — lets non-technical operators recombine without ever asking for
-a new schema.
+Sanity's "compose pages from section blocks" pattern is the difference between a CMS you
+actually use and a CMS you avoid. Modeling at the block layer — not the page layer — lets
+you recombine without ever reaching back into a new schema.

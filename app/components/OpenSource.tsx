@@ -12,12 +12,12 @@ const NOTABLE = [
   {
     repo: "rabit-wallet",
     summary: "MIT-licensed embedded wallet SDK. 12 packages, Shamir Secret Sharing, EVM + Solana.",
-    href: "https://github.com/web3normad/rabit-wallet",
+    href: "https://github.com/dev-doji/rabit-wallet",
   },
   {
     repo: "pagrin",
     summary: "Multi-app Turborepo with shared @pagrin/ai-chat, /analytics, /i18n, /ui packages.",
-    href: "https://github.com/web3normad/pagrin",
+    href: "https://github.com/dev-doji/pagrin",
   },
   {
     repo: "foniolabs/website",
@@ -27,7 +27,7 @@ const NOTABLE = [
 ];
 
 export default function OpenSource() {
-  const username = "web3normad";
+  const username = "dev-doji";
   return (
     <section id="open-source" className="border-t border-[var(--color-line)] py-24 md:py-40">
       <div className="container-x">

@@ -6,7 +6,7 @@ const ROLES = [
   "Frontend engineer @ Pagrin.",
   "Building for Tita Group.",
   "Open-source maintainer.",
-  "Proprietor — Dominion Academy.",
+  "Proprietor — Firm Foundation & Dominion Academy.",
   "AI-native builder.",
 ];
 
