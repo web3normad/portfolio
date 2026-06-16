@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import Magnetic from "./Magnetic";
@@ -13,17 +14,36 @@ export default function Contact() {
       className="relative overflow-hidden bg-[var(--color-ink)] py-32 text-[var(--color-paper)] md:py-48"
     >
       <div className="container-x">
-        <p className="eyebrow mb-6 text-[var(--color-paper)]/60">07 · Get in touch</p>
+        <p className="eyebrow mb-6 text-[var(--color-paper)]/60">08 · Get in touch</p>
         <RevealText
           as="h2"
           className="display text-6xl leading-[0.95] md:text-9xl lg:text-[12rem]"
           text={"Have something\nbuilt right."}
         />
-        <p className="mt-10 max-w-xl text-lg text-[var(--color-paper)]/70 md:text-xl">
-          I&apos;m always open to conversations — partnerships, advisory, speaking, collaborations
-          across software, fintech, and education. The fastest way is email; the deepest is a
-          phone call.
-        </p>
+        <div className="mt-10 grid items-end gap-10 md:grid-cols-[1fr_auto]">
+          <p className="max-w-xl text-lg text-[var(--color-paper)]/70 md:text-xl">
+            I&apos;m always open to conversations — partnerships, advisory, speaking, collaborations
+            across software, fintech, and education. The fastest way is email; the deepest is a
+            phone call.
+          </p>
+          <motion.figure
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-12% 0px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="group relative w-44 shrink-0 md:w-56"
+          >
+            <div className="relative aspect-[4/5] overflow-hidden border border-[var(--color-paper)]/15">
+              <Image
+                src="/image-4.jpeg"
+                alt="Emmanuel Doji"
+                fill
+                sizes="(min-width: 768px) 224px, 176px"
+                className="object-cover grayscale transition-[filter] duration-700 ease-out group-hover:grayscale-0"
+              />
+            </div>
+          </motion.figure>
+        </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <motion.a

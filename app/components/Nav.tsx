@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Magnetic from "./Magnetic";
+import Logo from "./Logo";
 import { SOCIALS } from "@/lib/data/socials";
 
 const LINKS = [
@@ -41,10 +42,10 @@ export default function Nav() {
         }`}
       >
         <div className="container-x flex h-16 items-center justify-between md:h-20">
-          <a href="#top" className="flex items-baseline gap-2" data-cursor="hover">
-            <span className="display text-2xl leading-none">Emmanuel</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-mute)]">
-              ED · 26
+          <a href="#top" className="flex items-center gap-3" data-cursor="hover" aria-label="Doji — home">
+            <Logo className="h-6 w-auto md:h-7" />
+            <span className="hidden font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-mute)] sm:inline">
+              Emmanuel Doji
             </span>
           </a>
 

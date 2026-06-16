@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 
@@ -38,13 +39,37 @@ export default function About() {
           title={"Three vectors,\none operator."}
         />
 
-        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-7 md:col-start-3">
+        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+          <motion.figure
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-15% 0px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="group relative md:col-span-4 md:col-start-2"
+          >
+            <div className="relative aspect-[4/5] overflow-hidden border border-[var(--color-line)] bg-[var(--color-paper-2)]">
+              <Image
+                src="/profile-picture.png"
+                alt="Emmanuel Doji"
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                priority
+                className="object-cover object-top grayscale transition-[filter,transform] duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.02]"
+              />
+            </div>
+            <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-mute)]">
+              <span>Emmanuel Doji</span>
+              <span>Jos, Nigeria</span>
+            </figcaption>
+          </motion.figure>
+
+          <div className="md:col-span-6 md:col-start-7">
             <p className="text-lg leading-relaxed text-[var(--color-ink)] md:text-2xl md:leading-snug">
-              I&apos;m an engineer who runs things. I build software that ships in production,
-              and I run the businesses and institutions it ships inside of. The combination is
-              the point — clean code is easy when you&apos;ve never had to keep the lights on,
-              and operating gets harder when you can&apos;t open the codebase yourself.
+              I build things that have to work — in production, and in the real world that
+              leans on them. Code that ships to users. Businesses that have to make payroll.
+              A school that opens its doors every morning. I live at the seam where engineering
+              meets ownership, because that&apos;s where software stops being a demo and starts
+              changing how people earn, build, and learn.
             </p>
           </div>
 
